@@ -1,41 +1,28 @@
-<p>customers works!</p>
 
-<a [title]="'my page'" [routerLink]="['/cutomer/edit']">
-    new customer
-</a>
-<br><br>
-<a [title]="'my page'" [routerLink]="['/cutomer',1]">
-    edit customer
-</a>
+<mat-toolbar color="primary" class="component-heading" >
+    <span>Customer List</span>
+</mat-toolbar>
 
-
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-    <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
-
-    <!-- Position Column -->
+<table mat-table [dataSource]="customerList" class="mat-elevation-z8">
+ 
     <ng-container matColumnDef="position">
         <th mat-header-cell *matHeaderCellDef> No. </th>
-        <td mat-cell *matCellDef="let element" [routerLink]="['/cutomer',element.position]" class="table-sr"> {{element.position}} </td>
+        <td mat-cell *matCellDef="let element" [routerLink]="['/cutomer',element.cutomerId]" class="table-sr"> {{element.cutomerId}} </td>
     </ng-container>
 
-    <!-- Name Column -->
     <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef> Name </th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.customerName}} </td>
     </ng-container>
 
-    <!-- Weight Column -->
     <ng-container matColumnDef="weight">
-        <th mat-header-cell *matHeaderCellDef> Weight </th>
-        <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+        <th mat-header-cell *matHeaderCellDef> Mobile Number </th>
+        <td mat-cell *matCellDef="let element"> {{element.mobileNumber}} </td>
     </ng-container>
 
-    <!-- Symbol Column -->
     <ng-container matColumnDef="symbol">
-        <th mat-header-cell *matHeaderCellDef> Symbol </th>
-        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+        <th mat-header-cell *matHeaderCellDef> Gender </th>
+        <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

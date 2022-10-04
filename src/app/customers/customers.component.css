@@ -1,7 +1,20 @@
 table {
-    width: 100%;
+    width: 80%;
   }
 
 .table-sr{
     cursor: pointer;
+}
+
+.mat-elevation-z8{
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 16px;
+}
+
+.component-heading{
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 16px;
 }

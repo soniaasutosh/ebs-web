@@ -1,9 +1,19 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
+import { Customer } from './customers/customer.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerService {
 
-  constructor() { }
+  SERVICE_URL = '/api/customer'
+
+  constructor(private http: HttpClient) { }
+
+  public getCustomers() {
+    return this.http.get<Customer[]>(this.SERVICE_URL);
+  }
 }

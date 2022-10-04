@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CustomerService } from '../customer.service';
+import { Customer } from './customer.model';
 
 
 export interface PeriodicElement {
@@ -26,10 +28,17 @@ export class CustomersComponent implements OnInit {
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
+  customerList: Customer[] = [];
 
-  constructor() { }
+  constructor(private customerService: CustomerService) { }
 
   ngOnInit(): void {
+   this.customerService.getCustomers().subscribe((data)=>{
+    console.log("customers ",data)
+    this.customerList = data;
+   },(error)=>{
+    console.log("Error -- ",error)
+   })
   }
 
 }
