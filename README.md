@@ -14,6 +14,12 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
+Run `docker build -t soniaasu/ebsweb:05102022 .` to build the docker image. 
+
+Run `docker run --rm -d -p 8081:80 --network my-ebs-net --name ebsweb soniaasu/ebsweb:05102022` to run the docker image. 
+
+
+
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
