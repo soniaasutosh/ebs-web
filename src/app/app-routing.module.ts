@@ -8,10 +8,10 @@ const routes: Routes = [
     path: '', component: CustomersComponent,
   },
   {
-    path:'cutomer/edit',component:CustomerEditComponent
+    path:'customer',component:CustomerEditComponent
   },
   {
-    path:'cutomer/:customerId',component:CustomerEditComponent
+    path:'customer/:customerId',component:CustomerEditComponent
   }
 ];
 

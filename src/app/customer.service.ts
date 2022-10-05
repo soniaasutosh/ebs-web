@@ -16,4 +16,37 @@ export class CustomerService {
   public getCustomers() {
     return this.http.get<Customer[]>(this.SERVICE_URL);
   }
+
+  public getCustomer(customerId: number) {
+    return this.http.get<Customer>(this.SERVICE_URL + '/' + customerId);
+  }
+
+  public updateCustomer(customerId: number, customer: Customer) {
+    const {
+      customerName,
+      gender,
+      mobileNumber
+    } = customer;
+
+    return this.http.put<Customer>(this.SERVICE_URL + '/' + customerId, {
+      customerName,
+      gender,
+      mobileNumber
+    });
+  }
+
+  public createCustomer(customer: Customer) {
+    const {
+      customerName,
+      gender,
+      mobileNumber
+    } = customer;
+    
+    return this.http.post<Customer>(this.SERVICE_URL, {
+      customerName,
+      gender,
+      mobileNumber
+    });
+
+  }
 }

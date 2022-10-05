@@ -1,6 +1,54 @@
+<mat-toolbar color="primary" class="component-heading">
+    <span *ngIf="customerId">Customer #{{customerId}}</span>
+
+    <span *ngIf="customerId === null">Creating New Customer</span>
+</mat-toolbar>
+
+<div class="mat-elevation-z8">
+
+    <form class="example-form" (submit)="onSubmit()">
+        <mat-form-field class="example-full-width" appearance="fill" *ngIf="customerId">
+            <mat-label>Customer Id</mat-label>
+            <input matInput disabled [value]="customerId" >
+        </mat-form-field>
+
+        <table class="example-full-width" cellspacing="0">
+            <tr>
+                <td>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Customer Name</mat-label>
+                        <input matInput [(ngModel)]="customer.customerName" name="customerName">
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Mobile#</mat-label>
+                        <input matInput [(ngModel)]="customer.mobileNumber" name="mobileNumber">
+                    </mat-form-field>
+                </td>
+            </tr>
+        </table>
+
+        <p>
+            <mat-form-field appearance="fill">
+                <mat-label>Select an Gender</mat-label>
+                <mat-select [(value)]="customer.gender">
+                    <mat-option>None</mat-option>
+                    <mat-option value="Male">Male</mat-option>
+                    <mat-option value="Female">Female</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+        </p>
+
+        <div class="example-button-row">
+            <button mat-raised-button color="primary" type="submit">Save</button>
+            <button mat-raised-button class="back-button" [routerLink]="['/']">Back</button>
+        </div>
 
 
-<p *ngIf="customerId">Editing Customer {{customerId}}</p>
+    </form>
 
-<p *ngIf="customerId === null">Creating New Customer</p>
 
+
+</div>

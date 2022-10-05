@@ -3,21 +3,7 @@ import { CustomerService } from '../customer.service';
 import { Customer } from './customer.model';
 
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  
-];
 
 @Component({
   selector: 'app-customers',
@@ -25,9 +11,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./customers.component.css']
 })
 export class CustomersComponent implements OnInit {
-
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
+  displayedColumns: string[] = ['customerId', 'name', 'mobileNumber', 'gender','action'];
   customerList: Customer[] = [];
 
   constructor(private customerService: CustomerService) { }
@@ -39,6 +23,11 @@ export class CustomersComponent implements OnInit {
    },(error)=>{
     console.log("Error -- ",error)
    })
+  }
+
+  deleteCustomer(customerId : number): void {
+    console.log("called delete customer", customerId);
+    
   }
 
 }
