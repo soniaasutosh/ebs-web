@@ -1,0 +1,25 @@
+.mat-elevation-z8{
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 16px;
+    padding: 16px;
+  }
+  
+  .component-heading{
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 16px;
+  }
+
+
+.example-button-row{
+  flex: 1;
+  flex-direction: row;
+  width: 40%;
+  /* background-color: aqua; */
+}
+
+.back-button{
+  margin-left: 16px;
+}

@@ -1,2 +1,30 @@
-<h1>MY EBS</h1>
+<mat-toolbar color="primary" class="app-header">
+
+    <span  (click)="onclickHeader()" > My EBS</span>
+
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item [routerLink]="['/']">
+            <mat-icon>home</mat-icon>
+            <span>Home</span>
+        </button>
+        <button mat-menu-item [routerLink]="['/addresses']">
+            <mat-icon>book</mat-icon>
+            <span>Addresses</span>
+        </button>
+        <button mat-menu-item>
+            <mat-icon>voicemail</mat-icon>
+            <span>Check voice mail</span>
+        </button>
+        <button mat-menu-item>
+            <mat-icon>notifications_off</mat-icon>
+            <span>Disable alerts</span>
+        </button>
+    </mat-menu>
+
+</mat-toolbar>
+
+
 <router-outlet></router-outlet>
