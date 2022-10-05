@@ -15,16 +15,20 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-
+import { MatMenuModule } from '@angular/material/menu';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatNativeDateModule} from '@angular/material/core';
+import { AddressesComponent } from './addresses/addresses.component';
+import { AddressEditComponent } from './address-edit/address-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     
     CustomersComponent,
-    CustomerEditComponent
+    CustomerEditComponent,
+    AddressesComponent,
+    AddressEditComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,8 @@ import {MatNativeDateModule} from '@angular/material/core';
     ReactiveFormsModule,
     MatNativeDateModule,
     MatButtonModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

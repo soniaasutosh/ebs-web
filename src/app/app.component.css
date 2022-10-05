@@ -5,3 +5,7 @@
   a {
     text-decoration: none;
   }
+
+  .app-header{
+    justify-content: space-between;
+  }
