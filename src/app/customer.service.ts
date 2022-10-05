@@ -49,4 +49,7 @@ export class CustomerService {
     });
 
   }
+  public deleteCustomer(customerId: number) {
+    return this.http.delete(this.SERVICE_URL + '/' + customerId,{responseType: 'text'});
+  }
 }

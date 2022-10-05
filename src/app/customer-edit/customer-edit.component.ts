@@ -48,6 +48,7 @@ export class CustomerEditComponent implements OnInit {
       this.customerService.createCustomer(this.customer).subscribe((data)=>{
         if(data.customerId){
           console.log("created new customer ",data)
+          this._snackBar.open("Customer Created #"+data.customerId, "OK!",{horizontalPosition:'left',duration:3000});
           this.customerId=data.customerId;
           this.customer= data;
         }else{
