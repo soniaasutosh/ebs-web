@@ -1,0 +1,37 @@
+version: '3'
+services:
+    ebs-mysql:
+        image: mysql:8.0.30
+        restart: always
+        environment: 
+          MYSQL_ROOT_PASSWORD : my-secret-pw
+        volumes:
+          - ./data-volume:/var/lib/mysql
+          - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+        ports: 
+          - '3306:3306'
+        networks:
+          - my-ebs-net
+    ebsapi:
+        image: soniaasu/ebsapi:05102022
+        restart: always
+        environment: 
+          spring.datasource.url : jdbc:mysql://ebs-mysql:3306/EBS
+          spring.datasource.username: root
+          spring.datasource.password: my-secret-pw
+        depends_on:
+          - "ebs-mysql"
+        networks:
+          - my-ebs-net
+    ebsweb: 
+        image: soniaasu/ebsweb:05102022
+        restart: always
+        ports: 
+          - '80:80'
+        depends_on:
+          - "ebsapi"
+        networks:
+          - my-ebs-net
+networks:
+  my-ebs-net:
+    external: true

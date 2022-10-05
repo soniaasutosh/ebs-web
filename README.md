@@ -18,7 +18,7 @@ Run `docker build -t soniaasu/ebsweb:05102022 .` to build the docker image.
 
 Run `docker run --rm -d -p 8081:80 --network my-ebs-net --name ebsweb soniaasu/ebsweb:05102022` to run the docker image. 
 
-
+docker compose up -d
 
 ## Running unit tests
 
